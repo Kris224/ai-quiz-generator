@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+</head>
+<body>
+  <h2>Attempt the Quiz</h2>
+  <form action="/submit" method="POST">
+    {% for q in quiz %}
+      <p><strong>Q{{ loop.index }}: {{ q.question }}</strong></p>
+      {% if q.type == "MCQ" %}
+        {% for option in q.options %}
+          <label><input type="radio" name="q{{ loop.index0 }}" value="{{ option }}"> {{ option }}</label><br>
+        {% endfor %}
+      {% else %}
+        <input type="text" name="q{{ loop.index0 }}" required><br>
+      {% endif %}
+      <input type="hidden" name="a{{ loop.index0 }}" value="{{ q.answer }}">
+      <br>
+    {% endfor %}
+    <input type="hidden" name="total" value="{{ quiz|length }}">
+    <button type="submit">Submit Quiz</button>
+  </form>
+</body>
+</html>

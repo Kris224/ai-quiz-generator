@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Quiz Generator</title>
+</head>
+<body>
+    <h1>AI Quiz Generator</h1>
+    <form method="POST">
+        <label>Paste Text:</label><br>
+        <textarea name="text" rows="10" cols="80" required></textarea><br><br>
+
+        <label>Number of Questions:</label>
+        <input type="number" name="num" value="3" min="1" max="10"><br><br>
+
+        <label>Difficulty:</label>
+        <select name="difficulty">
+            <option>easy</option>
+            <option>medium</option>
+            <option>hard</option>
+        </select><br><br>
+
+        <label>Question Type:</label>
+        <select name="qtype">
+            <option>MCQ</option>
+            <option>True/False</option>
+            <option>Fill-in-the-Blank</option>
+        </select><br><br>
+
+        <input type="submit" value="Generate Quiz">
+    </form>
+</body>
+</html>
